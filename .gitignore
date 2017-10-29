@@ -15,3 +15,6 @@ serviceAccountKey.json
 
 # Mac
 .DS_Store
+
+package-lock.json
+.lock
