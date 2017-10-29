@@ -1,19 +1,7 @@
 <template>
-    <v-app id="inspire">
-
-      <toolbar/>
-
-      <main>
-        <v-content>
-          <v-container fluid fill-height>
-            <nuxt/>
-          </v-container>
-        </v-content>
-      </main>
-
-      <input-text/>
-
-    </v-app>
+  <v-app id="inspire">
+    <nuxt/>
+  </v-app>
 </template>
 
 <script>
@@ -27,3 +15,12 @@ export default {
   }
 }
 </script>
+
+<style>
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+</style>
