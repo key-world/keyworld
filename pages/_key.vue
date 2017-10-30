@@ -11,7 +11,7 @@ import Toolbar from '~/components/Toolbar.vue'
 import MessageList from '~/components/MessageList.vue'
 import InputText from '~/components/InputText.vue'
 import { DB } from '@/plugins/firebase.js'
-import requestIp from 'request-ip'
+// import requestIp from '@/plugins/request-ip.js'
 
 export default {
   data() {
@@ -29,7 +29,7 @@ export default {
     const msgsRef = DB.ref('/rooms/' + route.params.key + '/msgs')
     return {
       msgsRef: msgsRef,
-      ip: requestIp.getClientIp(req)
+      ip: req.connection.remoteAddress
     }
   },
   components: {

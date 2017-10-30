@@ -59,11 +59,11 @@ module.exports = {
   },
   plugins: [{
     src: '~/plugins/firebase.js',
-    ssr: true
+    ssr: false
   },
   {
     src: '~/plugins/vuetify.js',
-    ssr: true
+    ssr: false
   }
   ]
 }
