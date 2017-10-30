@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 module.exports = {
   /*
    ** Headers of the page
@@ -55,15 +56,20 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        '$': 'jquery'
+      })
+    ]
   },
   plugins: [{
     src: '~/plugins/firebase.js',
-    ssr: false
+    ssr: true
   },
   {
     src: '~/plugins/vuetify.js',
-    ssr: false
+    ssr: true
   }
   ]
 }
