@@ -41,7 +41,7 @@ export default {
       }
     }
   },
-  props: ['room'],
+  props: ['room', 'ip'],
   computed: {
     validation: function() {
       return {
@@ -60,9 +60,11 @@ export default {
       if (this.isValid) {
         const msgRef = DB.ref('/rooms/' + room + '/msgs')
         this.newMessage.timestamp = Date.now()
+        this.newMessage.ip = this.ip
         msgRef.push(this.newMessage)
         this.newMessage.text = ''
         this.newMessage.timestamp = 0
+        this.newMessage.ip = ''
       }
     }
   }

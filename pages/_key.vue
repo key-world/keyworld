@@ -1,8 +1,8 @@
 <template>
   <v-container pa-0>
     <toolbar/>
-    <message-list :room="$route.params.key" />
-    <input-text :room="$route.params.key" />
+    <message-list :room="$route.params.key"/>
+    <input-text :room="$route.params.key" :ip="ip"/>
   </v-container>
 </template>
 
@@ -10,22 +10,26 @@
 import Toolbar from '~/components/Toolbar.vue'
 import MessageList from '~/components/MessageList.vue'
 import InputText from '~/components/InputText.vue'
-
 import { DB } from '@/plugins/firebase.js'
+import requestIp from 'request-ip'
+
 export default {
   data() {
     return {
-      msgsRef: {}
+      msgsRef: {},
+      ip: ''
     }
   },
-  asyncData({ route, store, error }) {
+  asyncData({ req, res, route }) {
     // const roomsRef = DB.ref('/rooms/' + route.params.key)
     // roomsRef.set({
     //   timestamp: Date.now()
     // })
+    // console.log(requestIp.getClientIp(req))
     const msgsRef = DB.ref('/rooms/' + route.params.key + '/msgs')
     return {
-      msgsRef: msgsRef
+      msgsRef: msgsRef,
+      ip: requestIp.getClientIp(req)
     }
   },
   components: {
