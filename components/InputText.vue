@@ -15,7 +15,7 @@
                 <v-flex xs4 ma-0>
                   <v-layout id="layout3" yellow accent-3 pa-0 ma-0 fluid fill-height align-center justify-center>
                     <v-btn type="submit" id="btn" flat block class="ma-0">
-                      <v-icon large>send</v-icon>
+                      전송
                     </v-btn>
                   </v-layout>
                 </v-flex>
@@ -25,12 +25,13 @@
         </v-flex>
       </v-layout>
     </v-footer>
-
   </v-container>
 </template>
 
 <script>
 import { DB } from '@/plugins/firebase.js'
+
+// import $ from 'jquery'
 
 export default {
   data() {
@@ -41,7 +42,7 @@ export default {
       }
     }
   },
-  props: ['room', 'ip'],
+  props: ['room'],
   computed: {
     validation: function() {
       return {
@@ -53,6 +54,13 @@ export default {
       return Object.keys(validation).every(function(key) {
         return validation[key]
       })
+    },
+    ip: function() {
+      return console.log('하하')
+      // $.getJSON('https://api.ipify.org/?format=json', function(res) {
+      //   console.log(res.ip)
+      //   return res.ip
+      // })
     }
   },
   methods: {
@@ -60,11 +68,11 @@ export default {
       if (this.isValid) {
         const msgRef = DB.ref('/rooms/' + room + '/msgs')
         this.newMessage.timestamp = Date.now()
-        this.newMessage.ip = this.ip
+        // this.newMessage.ip = this.ip
         msgRef.push(this.newMessage)
         this.newMessage.text = ''
         this.newMessage.timestamp = 0
-        this.newMessage.ip = ''
+        // this.newMessage.ip = ''
       }
     }
   }

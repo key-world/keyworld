@@ -5,7 +5,7 @@
           }">
       <v-flex id="flex1" xs12>
         <div v-for="msg in msgs" class="msg" :key="msg['.key']">
-          <message :msg="msg"/>
+          <message :msg="msg" />
         </div>
       </v-flex>
     </v-layout>

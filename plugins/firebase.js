@@ -9,7 +9,9 @@ var config = {
   authDomain: 'keyworld-203dd.firebaseapp.com',
   databaseURL: 'https://keyworld-203dd.firebaseio.com'
 }
-firebase.initializeApp(config)
+if (!firebase.apps.length) {
+  firebase.initializeApp(config)
+}
 
 export const DB = firebase.database()
 export default !firebase.apps.length ? firebase.initializeApp(config) : firebase.app()

@@ -1,4 +1,4 @@
-const webpack = require('webpack')
+// const webpack = require('webpack')
 module.exports = {
   /*
    ** Headers of the page
@@ -26,10 +26,6 @@ module.exports = {
     {
       rel: 'stylesheet',
       href: 'https://unpkg.com/vuetify/dist/vuetify.min.css'
-    },
-    {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
     }
     ]
   },
@@ -56,20 +52,21 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    },
-    plugins: [
-      new webpack.ProvidePlugin({
-        '$': 'jquery'
-      })
-    ]
+    }
+    // plugins: [
+    //   new webpack.ProvidePlugin({
+    //     '$': 'jquery'
+    //   })
+    // ]
   },
   plugins: [{
     src: '~/plugins/firebase.js',
-    ssr: true
+    ssr: false
   },
   {
     src: '~/plugins/vuetify.js',
-    ssr: true
+    ssr: false
   }
-  ]
+  ],
+  mode: 'spa'
 }

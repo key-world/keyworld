@@ -1,8 +1,8 @@
 <template>
-  <v-container pa-0>
-    <toolbar/>
-    <message-list :room="$route.params.key"/>
-    <input-text :room="$route.params.key" :ip="ip"/>
+  <v-container pa-0 fluid>
+    <toolbar></toolbar>
+    <message-list :room="$route.params.key"></message-list>
+    <input-text :room="$route.params.key" />
   </v-container>
 </template>
 
@@ -16,20 +16,30 @@ import { DB } from '@/plugins/firebase.js'
 export default {
   data() {
     return {
-      msgsRef: {},
-      ip: ''
+      msgsRef: {}
     }
   },
-  asyncData({ req, res, route }) {
+  props: {
+    room: {
+      type: String,
+      default() {
+        return ''
+      }
+    }
+  },
+  asyncData({ route }) {
     // const roomsRef = DB.ref('/rooms/' + route.params.key)
     // roomsRef.set({
     //   timestamp: Date.now()
     // })
-    // console.log(requestIp.getClientIp(req))
+    // console.log(req)
     const msgsRef = DB.ref('/rooms/' + route.params.key + '/msgs')
+    // $.getJSON('https://api.ipify.org/?format=json', function(res) {
+    //   this.ip = res.ip
+    //   console.log(this.ip)
+    // })
     return {
-      msgsRef: msgsRef,
-      ip: req.connection.remoteAddress
+      msgsRef: msgsRef
     }
   },
   components: {
