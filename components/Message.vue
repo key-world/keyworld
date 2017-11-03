@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid pa-2 id="container2">
+  <v-container pa-3 id="container2">
     <v-layout>
       <v-flex xs12>
         {{ msg.text }}

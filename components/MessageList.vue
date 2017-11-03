@@ -1,9 +1,7 @@
 <template>
-  <v-container fluid pa-0 id="container3" class="scroll-y">
-    <v-layout row align-center justify-center v-scroll="{
-            target: '#container3'
-          }">
-      <v-flex id="flex1" xs12>
+  <v-container pa-0 id="container1" class="scroll-y">
+    <v-layout v-scroll="{target: '#container1'}">
+      <v-flex id="flex1">
         <div v-for="msg in msgs" class="msg" :key="msg['.key']">
           <message :msg="msg" />
         </div>
@@ -32,7 +30,7 @@ export default {
     }
   },
   updated: function() {
-    $('#container3').scrollTop($('#flex1').height())
+    $('#container1').scrollTop($('#flex1').height())
   },
   components: {
     Message
@@ -40,10 +38,11 @@ export default {
 }
 </script>
 
-<style scoped>
-#container3 {
-  position: absolute;
-  top: 64px;
-  bottom: 82px;
-}
+<style lang="sass" scoped>
+#container1 
+  position: absolute
+  top: 56px
+  bottom: 56px
+  max-width: 400px
+
 </style>

@@ -1,4 +1,4 @@
-// const webpack = require('webpack')
+
 module.exports = {
   /*
    ** Headers of the page
@@ -26,6 +26,10 @@ module.exports = {
     {
       rel: 'stylesheet',
       href: 'https://unpkg.com/vuetify/dist/vuetify.min.css'
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
     }
     ]
   },
@@ -39,7 +43,7 @@ module.exports = {
    ** Build configuration
    */
   build: {
-    vendor: ['firebase', 'ramda', 'vuefire', 'vuetify'],
+    vendor: ['firebase', 'ramda', 'vuefire', 'vuetify', 'axios'],
     /*
      ** Run ESLint on save
      */
@@ -51,6 +55,16 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+        // config.module.rules.push({
+        //   test: /\.vue$/,
+        //   loader: 'vue-loader',
+        //   options: {
+        //     loaders: {
+        //       scss: 'sass-loader',
+        //       sass: 'sass-loader?indentedSyntax' // <style lang="sass">
+        //     }
+        //   }
+        // })
       }
     }
     // plugins: [

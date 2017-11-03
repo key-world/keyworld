@@ -18,3 +18,7 @@ serviceAccountKey.json
 
 package-lock.json
 .lock
+
+makefile
+
+exclude-list.txt
