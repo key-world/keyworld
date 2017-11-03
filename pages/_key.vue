@@ -54,7 +54,7 @@ export default {
     // console.log(req)
     const msgsRef = DB.ref('/rooms/' + route.params.key + '/msgs')
     const http = await axios.get('https://api.ipify.org/?format=json')
-    console.log(http.data.ip)
+    // console.log(http.data.ip)
     const ip = await http.data.ip
     // $.getJSON('https://api.ipify.org/?format=json', function(res) {
     //   this.ip = res.ip
