@@ -17,7 +17,6 @@ serviceAccountKey.json
 .DS_Store
 
 package-lock.json
-.lock
 
 makefile
 
