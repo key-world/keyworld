@@ -1,10 +1,9 @@
-
 module.exports = {
   /*
    ** Headers of the page
    */
   head: {
-    title: 'keyworld',
+    title: 'temp1',
     meta: [{
       charset: 'utf-8'
     },
@@ -15,7 +14,7 @@ module.exports = {
     {
       hid: 'description',
       name: 'description',
-      content: 'Nuxt.js project'
+      content: 'Nuxt.js + Vuetify.js project'
     }
     ],
     link: [{
@@ -25,14 +24,18 @@ module.exports = {
     },
     {
       rel: 'stylesheet',
-      href: 'https://unpkg.com/vuetify/dist/vuetify.min.css'
-    },
-    {
-      rel: 'stylesheet',
       href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
     }
     ]
   },
+  plugins: [
+    '~/plugins/vuetify.js',
+    '~/plugins/firebase.js',
+    '~/plugins/vue-session.js'
+  ],
+  css: [
+    '~/assets/style/app.styl'
+  ],
   /*
    ** Customize the progress bar color
    */
@@ -43,7 +46,15 @@ module.exports = {
    ** Build configuration
    */
   build: {
-    vendor: ['firebase', 'ramda', 'vuefire', 'vuetify', 'axios'],
+    vendor: [
+      '~/plugins/vuetify.js',
+      'vuefire',
+      'axios',
+      'firebase',
+      'vue-session',
+      'jquery'
+    ],
+    extractCSS: true,
     /*
      ** Run ESLint on save
      */
@@ -55,32 +66,8 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
-        // config.module.rules.push({
-        //   test: /\.vue$/,
-        //   loader: 'vue-loader',
-        //   options: {
-        //     loaders: {
-        //       scss: 'sass-loader',
-        //       sass: 'sass-loader?indentedSyntax' // <style lang="sass">
-        //     }
-        //   }
-        // })
       }
     }
-    // plugins: [
-    //   new webpack.ProvidePlugin({
-    //     '$': 'jquery'
-    //   })
-    // ]
   },
-  plugins: [{
-    src: '~/plugins/firebase.js',
-    ssr: false
-  },
-  {
-    src: '~/plugins/vuetify.js',
-    ssr: false
-  }
-  ],
   mode: 'spa'
 }

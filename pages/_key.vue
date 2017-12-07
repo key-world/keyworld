@@ -1,44 +1,74 @@
 <template>
-  <v-container pa-0 fluid>
-    <v-layout class="center" justify-center>
-      <v-flex class="chat-display" xs8 elevation-12>
-        <toolbar/>
-        <message-list :room="$route.params.key" />
-        <input-text :room="$route.params.key" :ip="ip" />
-      </v-flex>
-    </v-layout>
-    <!-- <v-container class="center-container" xs12 sm4 pa-0 align-content-center>
-              <v-flex xs12>
-                <toolbar></toolbar>
-                <message-list :room="$route.params.key"></message-list>
-                <input-text :room="$route.params.key"></input-text>
-              </v-flex>
-            </v-container> -->
-  </v-container>
+  <v-app dark>
+    <v-navigation-drawer :mini-variant="miniVariant" :clipped="clipped" v-model="drawer" fixed app>
+      <v-list>
+        <v-list-tile router :to="item.to" :key="i" v-for="(item, i) in items" exact>
+          <v-list-tile-action>
+            <v-icon v-html="item.icon"></v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title v-text="item.title"></v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar flat fixed app :clipped-left="clipped" height="56">
+      <v-btn large icon @click="drawer = !drawer">
+        <v-icon large>menu</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <img class="logo" src="/logo.png">
+      </v-btn>
+      <v-badge color="red" right>
+        <span slot="badge">10</span>
+        <v-toolbar-title v-text="title"></v-toolbar-title>
+      </v-badge>
+      <v-spacer></v-spacer>
+      <v-btn large icon @click.stop="rightDrawer = !rightDrawer">
+        <img class="avatar" :src="'/user-icon/' + uid % 9 + '.png'">
+      </v-btn>
+    </v-toolbar>
+    <v-content>
+      <v-container id="main" fluid pa-0>
+        <message-list :room="$route.params.key" :uid="uid" />
+      </v-container>
+    </v-content>
+    <v-navigation-drawer temporary :right="right" v-model="rightDrawer" fixed>
+      <v-list>
+        <v-list-tile @click.native="right = !right">
+          <v-list-tile-action>
+            <v-icon light>compare_arrows</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <input-message :room="$route.params.key" :uid="uid" />
+  </v-app>
 </template>
 
 <script>
-import Toolbar from '~/components/Toolbar.vue'
 import MessageList from '~/components/MessageList.vue'
-import InputText from '~/components/InputText.vue'
-import axios from 'axios'
+import InputMessage from '~/components/InputMessage.vue'
+// import axios from 'axios'
 import { DB } from '@/plugins/firebase.js'
-// import requestIp from '@/plugins/request-ip.js'
 
 export default {
   data() {
     return {
-      msgsRef: {},
-      ip: ''
+      clipped: false,
+      drawer: false,
+      items: [
+        { icon: 'apps', title: 'Welcome', to: '/' },
+        { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }
+      ],
+      miniVariant: false,
+      right: true,
+      rightDrawer: false,
+      title: 'Key World'
     }
   },
   props: {
-    // ip: {
-    //   type: String,
-    //   default() {
-    //     return ''
-    //   }
-    // },
     room: {
       type: String,
       default() {
@@ -47,41 +77,43 @@ export default {
     }
   },
   async asyncData({ route }) {
-    // const roomsRef = DB.ref('/rooms/' + route.params.key)
-    // roomsRef.set({
-    //   timestamp: Date.now()
-    // })
-    // console.log(req)
     const msgsRef = DB.ref('/rooms/' + route.params.key + '/msgs')
-    const http = await axios.get('https://api.ipify.org/?format=json')
-    // console.log(http.data.ip)
-    const ip = await http.data.ip
-    // $.getJSON('https://api.ipify.org/?format=json', function(res) {
-    //   this.ip = res.ip
-    //   console.log(this.ip)
-    // })
+    const s = await DB.ref('/current_key').once('value')
+    const id = await s.val().key
+    DB.ref('/current_key').set({ key: id + 1 })
+    // const http = await axios.get('https://api.ipify.org/?format=json')
+    // const ip = await http.data.ip
     return {
       msgsRef: msgsRef,
-      ip: ip
+      uid: id
     }
   },
   components: {
     MessageList,
-    Toolbar,
-    InputText
+    InputMessage
   }
 }
 </script>
 
-<style lang="sass" scoped>
-.center
-  min-height: 100vh
-  
-  .chat-display
-    max-width: 400px
+<style lang="sass">
+.avatar
+  width: 44px
+  height: 44px
 
+.logo
+  width: 32px
+  height: 32px
 
+#main
+  position: absolute
+  top: 0px
+  left: 0px
+  right: 0px
+  bottom: 0px
+  background: rgb(91, 196, 135)
+  background: -moz-linear-gradient(-45deg, rgb(91, 196, 135) 0%, rgb(64, 150, 155) 100%)
+  background: -webkit-linear-gradient(-45deg, rgb(91, 196, 135) 0%, rgb(64, 150, 155) 100%)
+  background: linear-gradient(135deg, rgb(91, 196, 135) 0%, rgb(64, 150, 155) 100%)
 
 
 </style>
-

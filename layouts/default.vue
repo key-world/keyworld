@@ -1,14 +1,20 @@
 <template>
-  <v-app id="inspire">
-    <nuxt/>
-  </v-app>
+  <nuxt/>
 </template>
 
-<style>
+<script>
+export default {
+  data() {
+    return {}
+  }
+}
+</script>
+
+<style lang="sass">
 html,
-body {
+body
   margin: 0;
   height: 100%;
   overflow: hidden;
-}
+
 </style>

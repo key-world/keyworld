@@ -9,15 +9,3 @@ npm-debug.log
 
 # Nuxt generate
 dist
-
-# key
-serviceAccountKey.json
-
-# Mac
-.DS_Store
-
-package-lock.json
-
-makefile
-
-exclude-list.txt
