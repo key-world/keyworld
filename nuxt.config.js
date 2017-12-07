@@ -3,7 +3,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'temp1',
+    title: 'keyworld',
     meta: [{
       charset: 'utf-8'
     },
