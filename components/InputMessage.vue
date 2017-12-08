@@ -2,12 +2,12 @@
   <v-container id="container" fixed pa-0>
     <v-form @submit.prevent="addMessage(room)">
       <v-layout class="text-xs-right">
-        <v-flex id="input" pl-2 pb-2 pt-2 xs11 class="text-xs-center">
+        <v-flex id="input" pl-1 pb-1 pt-1 xs11 class="text-xs-center">
           <input id="text-field" placeholder="메시지를 입력하세요" rows="1" v-model="newMessage.text" name="input-1" single-line full-width hide-details></input>
         </v-flex>
         <v-flex>
           <v-btn type="submit" icon>
-            <v-icon medium>send</v-icon>
+            <v-icon large>send</v-icon>
           </v-btn>
         </v-flex>
       </v-layout>
