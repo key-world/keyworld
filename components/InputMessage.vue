@@ -1,18 +1,20 @@
 <template>
-  <v-container id="container" fixed pa-0>
-    <v-form @submit.prevent="addMessage(room)">
-      <v-layout class="text-xs-right">
-        <v-flex id="input" pl-1 pb-1 pt-1 xs11 class="text-xs-center">
-          <v-text-field light id="text-field" placeholder="메시지를 입력하세요" rows="1" v-model="newMessage.text" name="input-1" single-line full-width hide-details></v-text-field>
-        </v-flex>
-        <v-flex>
-          <v-btn type="submit" icon>
-            <v-icon medium>send</v-icon>
-          </v-btn>
-        </v-flex>
-      </v-layout>
-    </v-form>
-  </v-container>
+  <v-footer id="container" fixed pa-0>
+    <v-container pa-0>
+      <v-form @submit.prevent="addMessage(room)">
+        <v-layout class="text-xs-right">
+          <v-flex id="input" pl-1 pb-1 pt-1 xs11 class="text-xs-center">
+            <v-text-field light id="text-field" placeholder="메시지를 입력하세요" rows="1" v-model="newMessage.text" name="input-1" single-line full-width hide-details></v-text-field>
+          </v-flex>
+          <v-flex>
+            <v-btn type="submit" icon>
+              <v-icon medium>send</v-icon>
+            </v-btn>
+          </v-flex>
+        </v-layout>
+      </v-form>
+    </v-container>
+  </v-footer>
 </template>
 
 <script>
