@@ -1,6 +1,6 @@
 <template>
-  <v-footer id="container" fixed pa-0>
-    <v-container pa-0>
+  <v-footer id="container" fixed class="pa-0">
+    <v-container pa-0 ma-0>
       <v-form @submit.prevent="addMessage(room)">
         <v-layout class="text-xs-right">
           <v-flex id="input" pl-1 pb-1 pt-1 xs11 class="text-xs-center">
