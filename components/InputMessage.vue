@@ -1,5 +1,5 @@
 <template>
-  <v-container id="container" pa-0>
+  <v-container id="container" fixed pa-0>
     <v-form @submit.prevent="addMessage(room)">
       <v-layout class="text-xs-right">
         <v-flex id="input" pl-2 pb-2 pt-2 xs11 class="text-xs-center">
@@ -69,14 +69,9 @@ export default {
   font-size: 1.3em
   color: black
 
-.footer
-  background-color: rgba(0,0,0,0)
-
 #container
-  position: absolute
-  left: 0px
-  right: 0px
-  bottom: 0px
+  position: fixed
+  bottom: 0
   height: 48px
   background-color: rgba(0,0,0,0)
 
