@@ -4,6 +4,9 @@
   "description": "Nuxt.js + Vuetify.js project",
   "author": "Chris Yang <ysm0622@gmail.com>",
   "private": true,
+  "engines": {
+    "node": "8.9.0"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
