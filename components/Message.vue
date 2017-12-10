@@ -1,6 +1,6 @@
 <template>
-  <v-layout v-if="uid !== msg.uid">
-    <v-flex class="profile text-xs-center">
+  <v-layout>
+    <v-flex class="profile text-xs-center" :class="{'order-xs2': isMyMessage}">
       <v-flex xs12>
         <img class="avatar" :src="'/user-icon/' + msg.uid % 9 +'.png'">
       </v-flex>
@@ -8,34 +8,21 @@
         <h5>{{ iconNames[msg.uid % 9] }}</h5>
       </v-flex>
     </v-flex>
-    <v-flex xs11 ma-1 ml-2 id="message-block">
+    <v-flex xs11 ma-1 ml-2 id="message-block" :class="{myMessageText: isMyMessage}">
       <v-flex xs12 class="content" pa-2>
         <span>{{ msg.text }}</span>
-      </v-flex>
-    </v-flex>
-  </v-layout>
-  <v-layout v-else>
-    <v-flex xs11 ma-1 ml-2 text-xs-right id="message-block">
-      <v-flex xs12 class="content" pa-2>
-        <span>{{ msg.text }}</span>
-      </v-flex>
-    </v-flex>
-    <v-flex class="profile text-xs-center">
-      <v-flex xs12>
-        <img class="avatar" :src="'/user-icon/' + msg.uid % 9 +'.png'">
-      </v-flex>
-      <v-flex xs12>
-        <h5>{{ iconNames[msg.uid % 9] }}</h5>
       </v-flex>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+
 export default {
   props: ['msg', 'uid'],
   data() {
     return {
+      isMyMessage: this.uid === this.msg.uid,
       iconNames: {
         0: '돼지',
         1: '댕댕이',
@@ -54,6 +41,7 @@ export default {
 
 <style lang="sass" scoped>
 .profile
+  display: inline-block
   width: 40px
 
 .layout
@@ -66,9 +54,11 @@ export default {
 #avatar
   background-color: black
 
+.myMessageText
+  text-align: right
+
 #message-block
 
-  
   .content
     display: inline-block
     max-width: 70vw

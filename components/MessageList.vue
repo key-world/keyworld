@@ -1,5 +1,5 @@
 <template>
-  <v-container pa-2 id="container1" class="scroll-y">
+  <v-container pa-1 id="container1" class="scroll-y">
     <v-layout v-scroll="{target: '#container1'}">
       <v-flex id="flex1">
         <div v-for="msg in msgs" :key="msg['.key']">

@@ -52,7 +52,8 @@ module.exports = {
       'axios',
       'firebase',
       'vue-session',
-      'jquery'
+      'jquery',
+      'lodash'
     ],
     extractCSS: true,
     /*
