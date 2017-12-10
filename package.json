@@ -12,24 +12,22 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "axios": "latest",
+    "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
-    "firebase": "^4.6.2",
+    "firebase": "^4.8.0",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
-    "nuxt": "latest",
-    "vue": "latest",
     "vue-session": "^0.9.10",
     "vue-template-compiler": "^2.5.9",
-    "vuefire": "^1.4.4",
+    "vuefire": "^1.4.5",
     "vuetify": "latest",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "eslint": "^4.3.0",
+    "eslint": "^4.13.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-html": "^3.1.1",
