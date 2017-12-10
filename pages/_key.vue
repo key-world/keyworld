@@ -27,7 +27,7 @@
             <v-toolbar-title v-text="title"></v-toolbar-title>
           </v-badge>
           <v-spacer></v-spacer>
-          <v-btn large icon @click.stop="rightDrawer = !rightDrawer">
+          <v-btn icon @click.stop="rightDrawer = !rightDrawer">
             <img class="avatar" :src="'/user-icon/' + uid % 9 + '.png'">
           </v-btn>
         </v-toolbar>
