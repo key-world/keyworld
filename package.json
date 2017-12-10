@@ -23,11 +23,11 @@
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "nuxt": "^1.0.0-rc9",
-    "vue": "^2.5.9",
+    "vue": "^2.4.4",
     "vue-session": "^0.9.10",
     "vue-template-compiler": "^2.5.9",
     "vuefire": "^1.4.5",
-    "vuetify": "latest",
+    "vuetify": "^0.17.4",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
@@ -43,6 +43,7 @@
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1"
+    "stylus-loader": "^3.0.1",
+    "webpack": "^3.10.0"
   }
 }
