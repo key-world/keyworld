@@ -15,10 +15,11 @@
           </v-list>
         </v-navigation-drawer>
         <v-toolbar flat fixed app :clipped-left="clipped" height="56">
-          <v-btn large icon @click="drawer = !drawer">
-            <v-icon large>menu</v-icon>
-          </v-btn>
-          <v-btn icon>
+          <v-toolbar-side-icon @click="drawer = !drawer"/>
+          <!-- <v-btn icon @click="drawer = !drawer">
+            <v-icon>menu</v-icon>
+          </v-btn> -->
+          <v-btn icon disabled>
             <img class="logo" src="/logo.png">
           </v-btn>
           <v-badge color="red" right>
@@ -99,15 +100,15 @@ export default {
 
 <style lang="sass">
 .avatar
-  width: 44px
-  height: 44px
+  width: 30px
+  height: 30px
 
 .center1
   min-height: 100vh
 
 .logo
-  width: 32px
-  height: 32px
+  width: 28px
+  height: 28px
 
 #main
   position: fixed
