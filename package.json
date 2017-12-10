@@ -19,6 +19,8 @@
     "firebase": "^4.8.0",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
+    "nuxt": "^1.0.0-rc9",
+    "vue": "^2.5.9",
     "vue-session": "^0.9.10",
     "vue-template-compiler": "^2.5.9",
     "vuefire": "^1.4.5",
