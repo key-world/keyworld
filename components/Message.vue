@@ -9,14 +9,23 @@
       </v-flex>
     </v-flex>
     <v-flex xs11 ma-1 ml-2 id="message-block" :class="{myMessageText: isMyMessage}">
-      <v-flex xs12 class="content" pa-2>
-        <span>{{ msg.text }}</span>
+      <v-flex xs12 class="content" :class="{myMessageText: isMyMessage}" pa-2>
+        <span v-for="n in splitMessage" :key="n.id">
+          <span v-if="n[0] === '#'">
+            <hashtag-badge :tagName="n"/>
+          </span>
+          <span v-else>
+            {{ n }}
+          </span>
+        </span>
       </v-flex>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+import HashtagBadge from '~/components/HashtagBadge.vue'
+import _ from 'lodash'
 
 export default {
   props: ['msg', 'uid'],
@@ -35,6 +44,14 @@ export default {
         8: '우끼'
       }
     }
+  },
+  computed: {
+    splitMessage: function() {
+      return _.split(this.msg.text, ' ')
+    }
+  },
+  components: {
+    HashtagBadge
   }
 }
 </script>
@@ -55,7 +72,7 @@ export default {
   background-color: black
 
 .myMessageText
-  text-align: right
+    text-align: right
 
 #message-block
 
@@ -66,9 +83,12 @@ export default {
     border-radius: 8px;
     background-color: rgba(255,255,255,1)
 
+  .myMessageText
+    text-align: left
+
   span
     color: black
-    font-size: 1.2em
+    font-size: 1.1em
 
 
 

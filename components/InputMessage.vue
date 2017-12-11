@@ -46,6 +46,7 @@ export default {
   },
   methods: {
     addMessage: function(room) {
+      document.getElementById('text-field').focus()
       if (this.isValid) {
         const msgRef = DB.ref('/rooms/' + room + '/msgs')
         this.newMessage.timestamp = Date.now()
