@@ -1,35 +1,98 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <div class="text-xs-center">
-        <img src="/v.png" alt="Vuetify.js" class="mb-5" />
-      </div>
-      <v-card>
-        <v-card-title class="headline">Welcome to the Vuetify + Nuxt.js template</v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>For more information on Vuetify, check out the
-            <a href="https://vuetifyjs.com" target="_blank">documentation</a>.</p>
-          <p>If you have questions, please join the official
-            <a href="https://chat.vuetifyjs.com/" target="_blank" title="chat">discord</a>.</p>
-          <p>Find a bug? Report it on the github
-            <a href="https://github.com/vuetifyjs/vuetify/issues" target="_blank" title="contribute">issue board</a>.</p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em>
-              <small>&mdash; John Leider</small>
-            </em>
-          </div>
-          <hr class="my-3">
-          <a href="https://nuxtjs.org/" target="_blank">Nuxt Documentation</a>
-          <br>
-          <a href="https://github.com/nuxt/nuxt.js" target="_blank">Nuxt GitHub</a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="primary" flat nuxt to="/inspire">Continue</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <v-container id="main" fluid pa-0 text-xs-center>
+    <v-layout wrap row>
+      <v-flex xs12 class="top-text">
+        <img class="logo" src="/logo.png">
+        <h2>K E Y W O R L D</h2>
+        <h4>Feel free to chat with people<br>who have same interest with you.</h4>
+      </v-flex>
+      <v-flex xs12>
+        <v-layout class="input">
+          <v-flex>
+            <h1>#</h1>
+          </v-flex>
+          <v-flex>
+            <v-text-field light id="text-field" placeholder="ENTER / CREATE KEYWORLD" rows="1" name="input-1" single-line full-width hide-details></v-text-field>
+          </v-flex>
+          <v-flex>
+            <v-btn>
+              JOIN
+            </v-btn>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+      <v-flex class="legal" text-xs-center>
+        Created by @Keyworld @2017 | Legal
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
+
+<style lang="sass" scoped>
+.container
+  font-family: DINCondensed-Bold;
+
+.top-text
+  padding: 10%
+
+.logo
+  width: 48px
+  height: 48px
+
+h2
+  font-size: 3.0em
+  margin: auto
+
+h4
+  margin: auto
+  font-size: 1.5em
+  line-height: 1.1;
+
+#main
+  background: rgb(48,35,174); /* Old browsers */
+  background: -moz-linear-gradient(-45deg, rgb(48,35,174) 0%, rgb(200,109,215) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, rgb(48,35,174) 0%,rgb(200,109,215) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, rgb(48,35,174) 0%,rgb(200,109,215) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3023ae', endColorstr='#c86dd7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+.input
+  background: #FFFFFF
+  border-radius: 3px
+  width: 280px
+  margin: auto
+
+  .card
+    background: #50E3C2
+    border-radius: 4px
+    border: 2px solid #FFFFFF
+
+.legal
+  position: fixed
+  bottom: 0
+  width: 100%
+  padding: 8px
+
+  h1
+    color: black
+
+</style>
+
+/* Rectangle 3: */
+background: #FFFFFF;
+border-radius: 5px;
+/* Rectangle 3: */
+background: #50E3C2;
+border: 3px solid #FFFFFF;
+border-radius: 5px;
+/* #: */
+font-family: DINCondensed-Bold;
+font-size: 48px;
+color: #000000;
+/* JOIN: */
+font-family: DINCondensed-Bold;
+font-size: 36px;
+color: #FFFFFF;
+/* ENTER / CREATE KEYWO: */
+font-family: DINCondensed-Bold;
+font-size: 36px;
+color: #D8D8D8;
