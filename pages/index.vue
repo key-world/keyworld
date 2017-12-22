@@ -12,7 +12,7 @@
               <h1>#</h1>
             </v-flex>
             <v-flex>
-              <input v-model="keyword" class="textfield" light placeholder="ENTER / CREATE KEYWORLD" rows="1" name="input-1" single-line full-width hide-details></v-text-field>
+              <input v-model="keyword" class="textfield" light placeholder="ENTER KEYWORLD" rows="1" name="input-1" single-line full-width hide-details></v-text-field>
             </v-flex>
             <v-flex>
               <a :href="'/'+keyword">
@@ -27,75 +27,11 @@
         <h4>POPULAR KEYWORLD</h4>
       </v-flex>
       <v-layout wrap row pl-4 pr-4 pt-2>
-        <v-flex xs4 pr-2 pl-2>
+        <v-flex v-for="room in roomInfo" :key="room.index" xs4 pr-2 pl-2>
           <v-badge overlap right color="red">
-            <span slot="badge" class="np">12</span>
-            <v-btn flat outline round medium block>
-              가천대
-            </v-btn>
-          </v-badge>
-        </v-flex>
-        <v-flex xs4 pr-2 pl-2>
-          <v-badge overlap right color="red">
-            <span slot="badge" class="np">12</span>
-            <v-btn flat outline round medium block>
-              라오스
-            </v-btn>
-          </v-badge>
-        </v-flex>
-        <v-flex xs4 pr-2 pl-2>
-          <v-badge overlap right color="red">
-            <span slot="badge" class="np">12</span>
-            <v-btn flat outline round medium block>
-              오버워치
-            </v-btn>
-          </v-badge>
-        </v-flex>
-        <v-flex xs4 pr-2 pl-2>
-          <v-badge overlap right color="red">
-            <span slot="badge" class="np">12</span>
-            <v-btn flat outline round medium block>
-              해커톤
-            </v-btn>
-          </v-badge>
-        </v-flex>
-        <v-flex xs4 pr-2 pl-2>
-          <v-badge overlap right color="red">
-            <span slot="badge" class="np">12</span>
-            <v-btn flat outline round medium block>
-              카메라
-            </v-btn>
-          </v-badge>
-        </v-flex>
-        <v-flex xs4 pr-2 pl-2>
-          <v-badge overlap right color="red">
-            <span slot="badge" class="np">12</span>
-            <v-btn flat outline round medium block>
-              여행
-            </v-btn>
-          </v-badge>
-        </v-flex>
-        <v-flex xs4 pr-2 pl-2>
-          <v-badge overlap right color="red">
-            <span slot="badge" class="np">12</span>
-            <v-btn flat outline round medium block>
-              음식
-            </v-btn>
-          </v-badge>
-        </v-flex>
-        <v-flex xs4 pr-2 pl-2>
-          <v-badge overlap right color="red">
-            <span slot="badge" class="np">12</span>
-            <v-btn flat outline round medium block>
-              맛집
-            </v-btn>
-          </v-badge>
-        </v-flex>
-        <v-flex xs4 pr-2 pl-2>
-          <v-badge overlap right color="red">
-            <span slot="badge" class="np">12</span>
-            <v-btn flat outline round medium block>
-              여행
+            <span slot="badge" class="np">{{ room.num }}</span>
+            <v-btn :href="'/'+room.name" flat outline round medium block>
+              {{ room.name }}
             </v-btn>
           </v-badge>
         </v-flex>
@@ -111,7 +47,45 @@
 export default {
   data() {
     return {
-      keyword: ''
+      keyword: '',
+      roomInfo: [
+        {
+          name: '가천대',
+          num: 10
+        },
+        {
+          name: '여행',
+          num: 10
+        },
+        {
+          name: '오버워치',
+          num: 10
+        },
+        {
+          name: '해커톤',
+          num: 10
+        },
+        {
+          name: '카메라',
+          num: 10
+        },
+        {
+          name: '맛집',
+          num: 10
+        },
+        {
+          name: '음식',
+          num: 10
+        },
+        {
+          name: '게임',
+          num: 10
+        },
+        {
+          name: 'LOL',
+          num: 10
+        }
+      ]
     }
   }
 }
@@ -119,10 +93,10 @@ export default {
 
 <style lang="sass" scoped>
 .container
-  font-family: DINCondensed-Bold;
+  font-family: 'Roboto', sans-serif
 
 .top-text
-  padding: 8%
+  padding: 12%
 
 .bottom-text
   padding-top: 8%
@@ -136,12 +110,12 @@ export default {
   height: 48px
 
 h2
-  font-size: 3.0em
+  font-size: 2.5em
   margin: auto
 
 h4
   margin: auto
-  font-size: 1.5em
+  font-size: 1.1em
   line-height: 1.1
 
 #main
@@ -162,18 +136,14 @@ h4
 
   h1
     font-size: 2.5em
-    padding-top: 12px
-    padding-left: 2px
+    margin-left: 4px
 
-  .input-group
-    padding: 0px
-    padding-top: 20px
-  
   input
     display: block
-    width: 100%
-    margin-top: 20px
-    font-size: 1.5em
+    width: 150px
+    margin-left: 10px
+    margin-top: 14px
+    font-size: 1.2em
     color: black
 
   .join
@@ -182,7 +152,6 @@ h4
     min-width: 100%
     border: 1.5px solid white
     font-size: 1.5em
-    padding-top: 8px
     background-color: #5BC487
     color: white
     
