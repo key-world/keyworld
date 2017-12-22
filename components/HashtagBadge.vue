@@ -2,7 +2,7 @@
   <v-badge overlap right color="red">
     <span slot="badge">{{ cnt }}</span>
     <a :href="'/'+tagName.slice(1)">
-      <v-chip small color="blue" text-color="white" style="text-decoration:none">
+      <v-chip small color="blue" text-color="white">
         {{ tagName.slice(1) }}
       </v-chip>
     </a>
@@ -17,4 +17,7 @@
 </script>
 
 <style lang="sass" scoped>
+  a {
+    text-decoration: none;
+  }
 </style>
