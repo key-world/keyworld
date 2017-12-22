@@ -1,9 +1,9 @@
 <template>
   <v-badge overlap right color="red">
     <span slot="badge">{{ cnt }}</span>
-    <v-btn small color="red" text-color="white">
+    <v-chip small color="red" text-color="white">
       {{ tagName.slice(1) }}
-    </v-btn>
+    </v-chip>
   </v-badge>
 </template>
 

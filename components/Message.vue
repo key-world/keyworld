@@ -56,8 +56,6 @@ export default {
   }
 }
 
-var hashtag = ;
-console.log(n);
 </script>
 
 <style lang="sass" scoped>
