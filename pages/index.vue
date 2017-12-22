@@ -44,6 +44,10 @@
 </template>
 
 <script>
+
+database = firebase.database();
+var roomName = database.room.name;
+
 export default {
   data() {
     return {
@@ -154,7 +158,7 @@ h4
     font-size: 1.5em
     background-color: #5BC487
     color: white
-    
+
 
   .card
     background: #50E3C2

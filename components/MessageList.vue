@@ -20,13 +20,15 @@ export default {
   data() {
     return {
       rooms: {},
-      msgs: {}
+      msgs: {},
+      timestamp: 0
     }
   },
   firebase: function() {
     return {
       rooms: DB.ref('/rooms'),
-      msgs: DB.ref('/rooms/' + this.room + '/msgs')
+      msgs: DB.ref('/rooms/' + this.room + '/msgs'),
+      timeStamp: DB.ref('/rooms/'+ this.room + '/timeStamp')
     }
   },
   updated: function() {
