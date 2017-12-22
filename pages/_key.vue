@@ -24,7 +24,7 @@
           </v-btn>
           <v-badge color="red" right>
             <span slot="badge">10</span>
-            <v-toolbar-title v-text="title"></v-toolbar-title>
+            <v-toolbar-title v-text="$route.params.key"></v-toolbar-title>
           </v-badge>
           <v-spacer></v-spacer>
           <v-btn icon @click.stop="rightDrawer = !rightDrawer">

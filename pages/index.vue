@@ -8,17 +8,19 @@
       </v-flex>
       <v-flex xs12>
         <v-layout class="input">
-          <v-flex id="hash">
-            <h1>#</h1>
-          </v-flex>
-          <v-flex>
-            <input class="textfield" light placeholder="ENTER / CREATE KEYWORLD" rows="1" name="input-1" single-line full-width hide-details></v-text-field>
-          </v-flex>
-          <v-flex>
-            <button class="join">
-              JOIN
-            </button>
-          </v-flex>
+            <v-flex id="hash">
+              <h1>#</h1>
+            </v-flex>
+            <v-flex>
+              <input v-model="keyword" class="textfield" light placeholder="ENTER / CREATE KEYWORLD" rows="1" name="input-1" single-line full-width hide-details></v-text-field>
+            </v-flex>
+            <v-flex>
+              <a :href="'/'+keyword">
+                <button type="submit" class="join">
+                  JOIN
+                </button>
+              </a>
+            </v-flex>
         </v-layout>
       </v-flex>
       <v-flex xs12 class="bottom-text">
@@ -105,6 +107,16 @@
   </v-container>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      keyword: ''
+    }
+  }
+}
+</script>
+
 <style lang="sass" scoped>
 .container
   font-family: DINCondensed-Bold;
@@ -172,6 +184,7 @@ h4
     font-size: 1.5em
     padding-top: 8px
     background-color: #5BC487
+    color: white
     
 
   .card
