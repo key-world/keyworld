@@ -26,6 +26,7 @@
 <script>
 import HashtagBadge from '~/components/HashtagBadge.vue'
 import _ from 'lodash'
+import MessageList from '~/components/MessageList.vue'
 
 export default {
   props: ['msg', 'uid'],
@@ -54,6 +55,9 @@ export default {
     HashtagBadge
   }
 }
+
+var hashtag = ;
+console.log(n);
 </script>
 
 <style lang="sass" scoped>
@@ -79,7 +83,7 @@ export default {
   .content
     display: inline-block
     max-width: 70vw
-    flex-wrap: nowrap 
+    flex-wrap: nowrap
     border-radius: 8px;
     background-color: rgba(255,255,255,1)
 

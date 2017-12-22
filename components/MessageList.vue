@@ -36,13 +36,15 @@ export default {
     Message
   }
 }
+
+
 </script>
 
 <style lang="sass" scoped>
 =scrollbar($width)
   ::-webkit-scrollbar
     width: $width
-  
+
 #container1
   position: absolute
   top: 56px
