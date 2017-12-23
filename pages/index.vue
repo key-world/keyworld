@@ -27,12 +27,12 @@
         <h4>POPULAR KEYWORLD</h4>
       </v-flex>
       <v-layout wrap row pl-4 pr-4 pt-2>
-        <v-flex v-for="room in roomInfo" :key="room.index" xs4 pr-2 pl-2>
+        <v-flex v-for="room in roomInfo_" :key="room['.key']" xs4 pr-2 pl-2>
           <v-badge overlap right color="red">
-            <span slot="badge" class="np">{{ room.num }}</span>
-            <v-btn :href="'/'+room.name" flat outline round medium block>
+            <span slot="badge" class="np">11</span>
+            <v-btn :href="'/'+room['.key']" flat outline round medium block>
               <!--v-for="room in popularRoom"-->
-              {{ room.name }}
+              {{ room['.key'] }}
             </v-btn>
           </v-badge>
         </v-flex>
@@ -45,62 +45,61 @@
 </template>
 
 <script>
-//  import { DB } from '@/plugins/firebase.js'
-//
-//  var rooms = DB.room;
-//  var msgArray = [];
-//  var sortedArray;
-//  var popularRoom;
-//
-//  for(i=0; i<rooms.length; i++){
-//    msgArray.append(rooms[i].msg(0));
-//  }
-//
-//  sortedArray = msgArray.sort();
-//  popularRoom = sortedArray[0,10];
+import { DB } from '@/plugins/firebase.js'
+import _ from 'lodash'
 
 export default {
   data() {
     return {
-      keyword: '',
-      roomInfo: [
-        {
-          name: '가천대',
-          num: 10
-        },
-        {
-          name: '여행',
-          num: 10
-        },
-        {
-          name: '오버워치',
-          num: 10
-        },
-        {
-          name: '해커톤',
-          num: 10
-        },
-        {
-          name: '카메라',
-          num: 10
-        },
-        {
-          name: '맛집',
-          num: 10
-        },
-        {
-          name: '음식',
-          num: 10
-        },
-        {
-          name: '게임',
-          num: 10
-        },
-        {
-          name: 'LOL',
-          num: 10
-        }
-      ]
+      keyword: ''
+      // roomInfo: [
+      //   {
+      //     name: '가천대',
+      //     num: 10
+      //   },
+      //   {
+      //     name: '여행',
+      //     num: 10
+      //   },
+      //   {
+      //     name: '오버워치',
+      //     num: 10
+      //   },
+      //   {
+      //     name: '해커톤',
+      //     num: 10
+      //   },
+      //   {
+      //     name: '카메라',
+      //     num: 10
+      //   },
+      //   {
+      //     name: '맛집',
+      //     num: 10
+      //   },
+      //   {
+      //     name: '음식',
+      //     num: 10
+      //   },
+      //   {
+      //     name: '게임',
+      //     num: 10
+      //   },
+      //   {
+      //     name: 'LOL',
+      //     num: 10
+      //   }
+      // ]
+    }
+  },
+  firebase: function() {
+    return {
+      roomInfo: DB.ref('/roomInfo')
+    }
+  },
+  computed: {
+    roomInfo_: function() {
+      return _.slice(_.reverse(_.sortBy(this.roomInfo, o => o.ts)), 0, 9)
     }
   }
 }

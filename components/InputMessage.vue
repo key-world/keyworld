@@ -55,6 +55,7 @@ export default {
         this.newMessage.text = ''
         this.newMessage.timestamp = 0
         this.newMessage.uid = 0
+        DB.ref('/roomInfo/' + room).set({ ts: Date.now() })
       }
     }
   }
