@@ -35,7 +35,7 @@
           <message-list :room="$route.params.key" :uid="uid" />
         </v-container>
         <input-message :room="$route.params.key" :uid="uid" />
-        <v-navigation-drawer temporary :right="right" v-model="rightDrawer" fixed>
+        <!-- <v-navigation-drawer temporary :right="right" v-model="rightDrawer" fixed>
           <v-list>
             <v-list-tile @click.native="right = !right">
               <v-list-tile-action>
@@ -44,7 +44,7 @@
               <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
             </v-list-tile>
           </v-list>
-        </v-navigation-drawer>
+        </v-navigation-drawer> -->
       </v-flex>
     </v-layout>
   </v-container>

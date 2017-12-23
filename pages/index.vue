@@ -116,9 +116,6 @@ export default {
   padding-top: 8%
   padding-bottom: 2%
 
-.np
-  padding-top: 5px
-
 .logo
   width: 48px
   height: 48px
