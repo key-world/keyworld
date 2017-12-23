@@ -30,7 +30,8 @@
         <v-flex v-for="room in roomInfo" :key="room.index" xs4 pr-2 pl-2>
           <v-badge overlap right color="red">
             <span slot="badge" class="np">{{ room.num }}</span>
-            <v-btn :href="'/'+room.name" flat outline round medium block v-for="room in popularRoom">
+            <v-btn :href="'/'+room.name" flat outline round medium block >
+              <!--v-for="room in popularRoom"-->
               {{ room.name }}
             </v-btn>
           </v-badge>
@@ -44,19 +45,19 @@
 </template>
 
 <script>
-  import { DB } from '@/plugins/firebase.js'
-
-  var rooms = DB.room;
-  var msgArray = [];
-  var sortedArray;
-  var popularRoom;
-
-  for(i=0; i<rooms.length; i++){
-    msgArray.append(rooms[i].msg(0));
-  }
-
-  sortedArray = msgArray.sort();
-  popularRoom = sortedArray[0,10];
+//  import { DB } from '@/plugins/firebase.js'
+//
+//  var rooms = DB.room;
+//  var msgArray = [];
+//  var sortedArray;
+//  var popularRoom;
+//
+//  for(i=0; i<rooms.length; i++){
+//    msgArray.append(rooms[i].msg(0));
+//  }
+//
+//  sortedArray = msgArray.sort();
+//  popularRoom = sortedArray[0,10];
 
 
   export default {
