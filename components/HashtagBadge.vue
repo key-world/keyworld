@@ -10,10 +10,9 @@
 </template>
 
 <script>
-
-  export default {
-    props: ['tagName', 'cnt']
-  }
+export default {
+  props: ['tagName', 'cnt']
+}
 </script>
 
 <style lang="sass" scoped>

@@ -8,19 +8,19 @@
       </v-flex>
       <v-flex xs12>
         <v-layout class="input">
-            <v-flex id="hash">
-              <h1>#</h1>
-            </v-flex>
-            <v-flex>
-              <input v-model="keyword" class="textfield" light placeholder="ENTER KEYWORLD" rows="1" name="input-1" single-line full-width hide-details></v-text-field>
-            </v-flex>
-            <v-flex>
-              <a :href="'/'+keyword">
-                <button type="submit" class="join">
-                  JOIN
-                </button>
-              </a>
-            </v-flex>
+          <v-flex id="hash">
+            <h1>#</h1>
+          </v-flex>
+          <v-flex>
+            <input v-model="keyword" class="textfield" light placeholder="ENTER KEYWORLD" rows="1" name="input-1" single-line full-width hide-details></v-text-field>
+          </v-flex>
+          <v-flex>
+            <a :href="'/'+keyword">
+              <button type="submit" class="join">
+                JOIN
+              </button>
+            </a>
+          </v-flex>
         </v-layout>
       </v-flex>
       <v-flex xs12 class="bottom-text">
@@ -30,7 +30,7 @@
         <v-flex v-for="room in roomInfo" :key="room.index" xs4 pr-2 pl-2>
           <v-badge overlap right color="red">
             <span slot="badge" class="np">{{ room.num }}</span>
-            <v-btn :href="'/'+room.name" flat outline round medium block >
+            <v-btn :href="'/'+room.name" flat outline round medium block>
               <!--v-for="room in popularRoom"-->
               {{ room.name }}
             </v-btn>
@@ -59,8 +59,7 @@
 //  sortedArray = msgArray.sort();
 //  popularRoom = sortedArray[0,10];
 
-
-  export default {
+export default {
   data() {
     return {
       keyword: '',

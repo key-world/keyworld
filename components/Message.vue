@@ -12,7 +12,7 @@
       <v-flex xs12 class="content" :class="{myMessageText: isMyMessage}" pa-2>
         <span v-for="n in splitMessage" :key="n.id">
           <span v-if="n[0] === '#'">
-            <hashtag-badge :tagName="n"/>
+            <hashtag-badge :tagName="n" />
           </span>
           <span v-else>
             {{ n }}
@@ -26,7 +26,6 @@
 <script>
 import HashtagBadge from '~/components/HashtagBadge.vue'
 import _ from 'lodash'
-import MessageList from '~/components/MessageList.vue'
 
 export default {
   props: ['msg', 'uid'],
@@ -55,7 +54,6 @@ export default {
     HashtagBadge
   }
 }
-
 </script>
 
 <style lang="sass" scoped>

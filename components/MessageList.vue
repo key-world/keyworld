@@ -28,7 +28,7 @@ export default {
     return {
       rooms: DB.ref('/rooms'),
       msgs: DB.ref('/rooms/' + this.room + '/msgs'),
-      timeStamp: DB.ref('/rooms/'+ this.room + '/timeStamp')
+      timeStamp: DB.ref('/rooms/' + this.room + '/timeStamp')
     }
   },
   updated: function() {
@@ -38,8 +38,6 @@ export default {
     Message
   }
 }
-
-
 </script>
 
 <style lang="sass" scoped>
@@ -52,5 +50,4 @@ export default {
   top: 56px
   bottom: 48px
   +scrollbar(200px)
-
 </style>
